@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            outline-color: lightgray;
+            box-shadow:
+                9px 11px 41.3px 0px rgba(0, 0, 0, 0.094), -13px 11px 88px rgba(0, 0, 0, 0.8)
+        }
+
+        button:active {
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">Click To Change Color</button>
+
+    <script>
+        //GRABBING DOM ITEMS
+        let btn = document.querySelector("button");
+        let body = document.querySelector("body");
+
+        //ADDING EVENTS LISTENER AND CALLBACK FUNCTION
+        btn.addEventListener('click', changeColor);
+
+        function random() {
+            return Math.round(Math.random() * 255)
+        }
+
+        function changeColor() {
+            body.style.backgroundColor = `rgb(${random()}, ${random()}, ${random()})`
+            console.log(body.style.backgroundColor)
+        }
+
+        changeColor()
+    </script>
+</body>
+
+</html>
